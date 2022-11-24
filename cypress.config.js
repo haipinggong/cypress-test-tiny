@@ -1,5 +1,12 @@
 module.exports = {
   e2e: {
-    setupNodeEvents(on, config) {},
+    env: {
+      grepFilterSpecs: true,
+      grepOmitFiltered: true,
+      grepTags: "",
+    },
+    async setupNodeEvents(on, config) {
+      require("@cypress/grep/src/plugin")(config);
+    },
   },
-}
+};
